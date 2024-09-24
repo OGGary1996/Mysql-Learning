@@ -42,6 +42,41 @@ LOCK TABLES `Eclipse` WRITE;
 INSERT INTO `Eclipse` VALUES ('2022-04-30','22:42:36','partial',0.640),('2022-10-25','11:01:20','partial',0.862),('2023-04-20','04:17:56','hybrid',1.013);
 /*!40000 ALTER TABLE `Eclipse` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Planet_distance`
+--
+
+DROP TABLE IF EXISTS `Planet_distance`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Planet_distance` (
+  `planet` varchar(20) NOT NULL,
+  `miles_from_erth` bigint DEFAULT NULL,
+  `diameter_km` int DEFAULT NULL,
+  PRIMARY KEY (`planet`),
+  UNIQUE KEY `miles_from_erth` (`miles_from_erth`),
+  UNIQUE KEY `diameter_km` (`diameter_km`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Planet_distance`
+--
+
+LOCK TABLES `Planet_distance` WRITE;
+/*!40000 ALTER TABLE `Planet_distance` DISABLE KEYS */;
+INSERT INTO `Planet_distance` VALUES ('Jupiter',390674712,142984),('Mars',48678219,6279),('Neptune',2703959966,49528),('Saturn',792248279,120536),('Uranus',1692662533,51118);
+/*!40000 ALTER TABLE `Planet_distance` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping events for database 'datatypes'
+--
+
+--
+-- Dumping routines for database 'datatypes'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -52,4 +87,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-23 18:43:50
+-- Dump completed on 2024-09-23 22:23:44

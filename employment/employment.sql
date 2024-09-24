@@ -1,8 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `land` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `land`;
+CREATE DATABASE  IF NOT EXISTS `employment` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `employment`;
 -- MySQL dump 10.13  Distrib 8.0.38, for macos14 (arm64)
 --
--- Host: localhost    Database: land
+-- Host: localhost    Database: employment
 -- ------------------------------------------------------
 -- Server version	8.0.39
 
@@ -18,11 +18,36 @@ USE `land`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Dumping events for database 'land'
+-- Table structure for table `unemployed`
+--
+
+DROP TABLE IF EXISTS `unemployed`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `unemployed` (
+  `region_id` int NOT NULL,
+  `num_unemployed` int DEFAULT NULL,
+  PRIMARY KEY (`region_id`),
+  UNIQUE KEY `region_id` (`region_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `unemployed`
+--
+
+LOCK TABLES `unemployed` WRITE;
+/*!40000 ALTER TABLE `unemployed` DISABLE KEYS */;
+INSERT INTO `unemployed` VALUES (1,2218457),(2,137455),(3,NULL);
+/*!40000 ALTER TABLE `unemployed` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping events for database 'employment'
 --
 
 --
--- Dumping routines for database 'land'
+-- Dumping routines for database 'employment'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -34,4 +59,4 @@ USE `land`;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-23 18:44:17
+-- Dump completed on 2024-09-23 22:24:02

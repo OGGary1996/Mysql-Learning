@@ -18,6 +18,32 @@ USE `store`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `city`
+--
+
+DROP TABLE IF EXISTS `city`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `city` (
+  `city_name` varchar(20) NOT NULL,
+  `year` int NOT NULL,
+  `high_temperature` int NOT NULL,
+  PRIMARY KEY (`city_name`,`year`),
+  CONSTRAINT `city_chk_1` CHECK ((`high_temperature` < 200)),
+  CONSTRAINT `city_chk_2` CHECK ((`year` between 1880 and 2030))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `city`
+--
+
+LOCK TABLES `city` WRITE;
+/*!40000 ALTER TABLE `city` DISABLE KEYS */;
+/*!40000 ALTER TABLE `city` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `complaint`
 --
 
@@ -42,6 +68,40 @@ LOCK TABLES `complaint` WRITE;
 /*!40000 ALTER TABLE `complaint` DISABLE KEYS */;
 /*!40000 ALTER TABLE `complaint` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `valued_customer`
+--
+
+DROP TABLE IF EXISTS `valued_customer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `valued_customer` (
+  `customer_id` int NOT NULL,
+  `first_name` varchar(20) NOT NULL,
+  `last_name` varchar(20) DEFAULT NULL,
+  `zip_code` int DEFAULT NULL,
+  PRIMARY KEY (`customer_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `valued_customer`
+--
+
+LOCK TABLES `valued_customer` WRITE;
+/*!40000 ALTER TABLE `valued_customer` DISABLE KEYS */;
+INSERT INTO `valued_customer` VALUES (1,'ABC','DEF',400000),(2,'GHI','JKL',400000),(3,'MNO','PQR',400000);
+/*!40000 ALTER TABLE `valued_customer` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping events for database 'store'
+--
+
+--
+-- Dumping routines for database 'store'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -52,4 +112,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-23 18:44:57
+-- Dump completed on 2024-09-23 22:25:23
