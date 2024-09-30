@@ -40,6 +40,7 @@ CREATE TABLE `city` (
 
 LOCK TABLES `city` WRITE;
 /*!40000 ALTER TABLE `city` DISABLE KEYS */;
+INSERT INTO `city` VALUES ('chongqing',2019,43);
 /*!40000 ALTER TABLE `city` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -94,14 +95,6 @@ LOCK TABLES `valued_customer` WRITE;
 INSERT INTO `valued_customer` VALUES (1,'ABC','DEF',400000),(2,'GHI','JKL',400000),(3,'MNO','PQR',400000);
 /*!40000 ALTER TABLE `valued_customer` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping events for database 'store'
---
-
---
--- Dumping routines for database 'store'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -112,4 +105,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-23 22:25:23
+-- Dump completed on 2024-09-29 14:17:27
