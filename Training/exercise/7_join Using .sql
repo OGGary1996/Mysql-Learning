@@ -1,4 +1,4 @@
-select 
+select *
 	c.customer_id,
     c.first_name,
     o.order_id,
@@ -19,7 +19,7 @@ join customers c using (customer_id) -- on o.customer_id = c.customer_id
 left join shippers sh using (shipper_id) -- on o.shipper_id = sh.shipper_id
 join order_statuses os on o.status = os.order_status_id; -- 两个table中的column name不相同 不能使用using
 
-select 
+select *
 	p.date,
     c.name,
     p.amount,

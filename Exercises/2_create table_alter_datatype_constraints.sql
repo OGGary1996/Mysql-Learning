@@ -15,15 +15,15 @@ create table customer(
     primary key (customer_id)
     );
 alter table customer 
-add column customer_age int,
-drop column address,
-rename column customer_name to first_name,
-rename to valued_customer;
+	add column customer_age int,
+	drop column address,
+	rename column customer_name to first_name,
+	rename to valued_customer;
 
 alter table valued_customer
-drop column customer_age,
-add column last_name varchar(20),
-add column zip_code int;
+	drop column customer_age,
+	add column last_name varchar(20),
+	add column zip_code int;
 
 create table complaint(
 	complaint_id int,
@@ -53,13 +53,13 @@ create table continent(
     primary key (continent_id)
 );
 alter table continent
-rename column continent_id to land_id,
-rename column continent_name to land_name,
-rename to land_info;
+	rename column continent_id to land_id,
+	rename column continent_name to land_name,
+	rename to land_info;
 
 alter table land_info
-alter population set default null,
-add constraint check_population check (population between 0 and 7000000000); 
+	alter population set default null,
+	add constraint check_population check (population between 0 and 7000000000); 
 
 insert into land_info(land_id,land_name,population)
 value
@@ -70,16 +70,16 @@ value
     (5,'South_America',430000000);
 
 update land_info
-set population = 1410000000
-where land_id = 2;
+	set population = 1410000000
+	where land_id = 2;
 
 insert into land_info(land_id,land_name)
 value
 	(6,'Oceania');
 
 update land_info
-set population = 43000000
-where land_id = 6;
+	set population = 43000000
+	where land_id = 6;
 
 select * 
 from land_info;
@@ -91,19 +91,19 @@ create table land1(
     main_country2 varchar(20) not null
 );
 alter table land1
-add primary key(land_name),
-add constraint fk foreign key (land_id) references land_info(land_id);
+	add primary key(land_name),
+	add constraint fk foreign key (land_id) references land_info(land_id);
 insert into land1(land_name,land_id,main_country1,main_country2)
 value
 	('Asia',1,'China','India');
     
 create table land2(
-land_name varchar(20),
-land_id int unique,
-main_country1 varchar(20) not null,
-main_country2 varchar(20) not null,
-primary key (land_name),
-foreign key (land_id) references land_info (land_id)
+	land_name varchar(20),
+	land_id int unique,
+	main_country1 varchar(20) not null,
+	main_country2 varchar(20) not null,
+	primary key (land_name),
+	foreign key (land_id) references land_info (land_id)
 );
 insert into land2(land_name,land_id,main_country1,main_country2)
 value
