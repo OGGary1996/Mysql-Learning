@@ -61,6 +61,16 @@ alter table land_info
 	alter population set default null,
 	add constraint check_population check (population between 0 and 7000000000); 
 
+SHOW INDEX FROM land_info; -- 显示默认的所有CONSTRAINT的名称，也包括UNIQUE约束的名称 其中key_name表示这个约束的名称
+ALTER TABLE land_info
+	DROP INDEX land_name_UNIQUE; -- 删除创建的UNIQUE约束 通过UNIQUE的名称
+
+ALTER TABLE land_info
+	DROP PRIMARY KEY; -- 删除PRIMARY KEY，PRIMARY KEY只有一个 所以不需要名称
+    
+ALTER TABLE land_info
+	ADD CONSTRAINT PK_land_info PRIMARY KEY(land_id); -- 添加PRIMARY KEY
+    
 insert into land_info(land_id,land_name,population)
 value
 	(1,'Asia',4600000000),

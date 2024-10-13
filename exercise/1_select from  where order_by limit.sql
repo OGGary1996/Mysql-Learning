@@ -5,6 +5,20 @@ from customers;
 -- select * from ...AS...
 select customer_id,first_name,points,points * 1.1 AS "Rewards"
 From customers;
+	-- 如果points中可能有null，那么结果会返回null，可以使用 IFNULL(……,0)，意思是如果有null 则当作0来处理
+SELECT 
+	customer_id,
+    first_name,
+    points,
+    IFNULL(points,0)
+FROM customers;
+-- 使用concat_wa()来合并一些column，创建一个新的临时的column用于显示结果
+SELECT 
+	customer_id,
+    first_name AS 'Customer Name',
+    CONCAT_WS(',',address,city,state) AS 'Location'
+FROM customers;
+
 
 -- where 中的逻辑运算
 select customer_id,birth_date,first_name,state,points

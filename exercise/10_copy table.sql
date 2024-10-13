@@ -1,15 +1,14 @@
 -- 适用于快速拷贝一个table 作为archive
 	-- 目标表格不存在 新建空表
-create table orders_archive as
-	select *
-    from orders
-    where order_date < '2019-01-01';
+CREATE TABLE orders_archive AS
+	SELECT *
+    FROM orders
+    WHERE order_date < '2019-01-01';
     -- 目标表格已经存在 直接导入目标表格 需要保证表格结构和数据类型一致
 insert into orders_archive()
 	select *
     from orders
     where order_date < '2019-01-01'; -- 整个select之后的语句可以被当作一整个子语句 直接放在后面执行
-    
 
 -- exercise 先join两个表格 再将这整个语句当作子语句块 用于copy表格。
 create table invoices_archive as
