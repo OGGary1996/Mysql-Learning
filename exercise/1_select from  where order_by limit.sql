@@ -2,6 +2,11 @@ use sql_store;
 select * 
 from customers;
 
+-- SELECT DISTINCT * ,忽略重复项
+SELECT DISTINCT state 
+FROM customers;
+
+
 -- select * from ...AS...
 select customer_id,first_name,points,points * 1.1 AS "Rewards"
 From customers;
@@ -16,7 +21,7 @@ FROM customers;
 SELECT 
 	customer_id,
     first_name AS 'Customer Name',
-    CONCAT_WS(',',address,city,state) AS 'Location'
+    CONCAT_WS(',',address,city,state) AS 'Location' -- WS的意思是with separator,所以第一个值需要输入分隔符
 FROM customers;
 
 

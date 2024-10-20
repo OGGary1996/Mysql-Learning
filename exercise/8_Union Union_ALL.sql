@@ -1,14 +1,16 @@
+-- UNION结合结果集时会忽略两个查询中重复的值
+-- UNION ALL则会返回所有的值，包括重复的值
 select 
 	order_id,
     order_date,
-    'Active' as status
+    'Active' as status -- 创建一个一次性显示的column
 from orders
 where order_date >= '2019-01-01'
 union
 select 
 	order_id,
     order_date,
-	'Archive' as status
+	'Archive' as status -- 创建一个一次性显示的column
 from orders
 where order_id < '2019-01-01';
 
@@ -16,7 +18,7 @@ select first_name
 from customers
 union 
 select name 
-from shippers; -- 返回的结果中column name = 第一个select
+from shippers; -- 返回的结果中 column name 通常情况下等于 第一个select中的column name
 
 select 
 	customer_id,
