@@ -1,3 +1,4 @@
+-- 可用于SELECT 之后 FROM之前，ORDER BY之后 
 -- 用于不同的条件来显示不同的值，并且可以添加这个列
 	-- 基于不同的薪资水平来显示评价
 SELECT 
@@ -35,3 +36,5 @@ ORDER BY
 	WHEN city IS NULL THEN state
     ELSE city
 END);
+
+-- 可用于UPDATE之后 加入逻辑判断来更新表格
