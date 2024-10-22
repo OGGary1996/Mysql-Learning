@@ -70,3 +70,4 @@ JOIN products p USING (product_id)
 GROUP BY p.product_id
 HAVING SUM(oi.quantity) >= SUM(p.quantity_in_stock); -- 销售数量超过库存数量的情况
 
+

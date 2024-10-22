@@ -12,11 +12,21 @@ CASE
 END AS 'salary level'
 FROM employees;
 
-	-- 用于分组计算
+SELECT 
+	name AS product,
+    unit_price,
+    CASE
+		WHEN unit_price >= 3 THEN 'high price'
+		WHEN unit_price BETWEEN 2 AND 3 THEN 'medium price'
+		WHEN unit_price <= 2 THEN 'low price'
+	END AS 'price level'
+FROM products;
+
+	-- 用于显示结果之后配合聚合函数分组计算
 SELECT 
 CASE 
 	WHEN salary > 100000 THEN 'High level'
-    WHEN salary BETWEEN 50000 AND 10000 THEN 'Medium level'
+    WHEN salary BETWEEN 50000 AND 100000 THEN 'Medium level'
     WHEN salary < 50000 THEN 'Low level'
 END AS salary_level,
 AVG(salary) AS Average_salary
